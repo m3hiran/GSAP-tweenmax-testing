@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nesty app</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js" integrity="sha512-1dalHDkG9EtcOmCnoCjiwQ/HEB5SDNqw8d4G2MKoNwjiwMNeBAkudsBCmSlMnXdsH8Bm0mOd3tl/6nL5y0bMaQ==" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+        <div class="logo"></div>
+        <div class="tesst"><img id="IMG" src="Asset 2.png" alt=""></div>
+        <div class="one"><div class="cube"></div></div>
+
+
+<script>
+
+// use GSAP CDN 
+// https://greensock.com/docs/v3/Eases
+// https://greensock.com/cheatsheet/
+// https://greensock.com/docs/v3
+
+
+// use GSAP to animate things
+
+gsap.from(".logo", {rotation: 360, scale: 0.5, opacity: 1,delay: 1, duration: 2, x :"-=200", repeat: -1, yoyo: true, ease: "elastic.out(1, 0.3)"});
+
+// use Timeline in GSAP مزیتش اینه میتونی همه رو با دستورات پیش فرض و یا دستورات آتی کنترل کنی
+
+var tl = gsap.timeline({repeat: -1, repeatDelay: 1});
+tl.to("#IMG", {x: 100, duration: 1});
+tl.to("#IMG", {y: 50, duration: 1});
+tl.to("#IMG", {opacity: 0, duration: 1});
+tl.pause();
+
+
+// use Keyframes in GSAP 
+
+gsap.to(".cube", { keyframes: [
+  { duration: 1, x: 200 },
+  { duration: 1, backgroundColor: "#f31630", delay: 0.5 }, 
+  { duration: 1, x: 400, rotation: -360, delay: 0.5 },
+  {duration:2, x:0, rotation:180, backgroundColor: "#fff"}
+]});
+
+
+
+</script>
+  
+ 
+</body>
+</html>
